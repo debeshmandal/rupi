@@ -15,7 +15,7 @@ impl System {
     }
   }
 
-  pub fn pbc(&self) {
+  pub fn pbc(&mut self) {
     for particle in self.particles.iter_mut() {
 			for i in 1..=3 {
 				if particle.pos[i] > self.dims[i] {
