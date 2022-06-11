@@ -1,5 +1,6 @@
 mod particle;
 mod system;
+mod integrator;
 
 fn main() {
     let mut p = particle::Particle::new();
@@ -8,4 +9,6 @@ fn main() {
     println!("{:?}", p);
     let s = system::System::new([10.0, 10.0, 10.0]);
     println!("{:?}", s);
+    let i = integrator::Integrator::new();
+    println!("{:?}", i);
 }
