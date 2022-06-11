@@ -1,6 +1,7 @@
 mod particle;
 
 fn main() {
-    particle::Particle{mass: 1.0};
+    let _p = particle::Particle::new();
     println!("Hello, world!");
+    println!("{:?}", _p);
 }
