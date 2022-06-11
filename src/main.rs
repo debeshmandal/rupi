@@ -12,6 +12,6 @@ fn main() {
     println!("{:?}", s);
     let i = integrator::Integrator::new(0.1);
     println!("{:?}", i);
-    i.run(&mut s, 10);
+    i.run(&mut s, 91);
     println!("{:?}", s);
 }

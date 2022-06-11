@@ -18,10 +18,10 @@ impl System {
   pub fn pbc(&mut self) {
     for particle in self.particles.iter_mut() {
 			for i in 0..3 {
-				if particle.pos[i] > self.dims[i] {
-					particle.pos[i] -= self.dims[i] / 2.0;
-				} else if -particle.pos[0] > self.dims[0] {
-					particle.pos[i] += self.dims[i] / 2.0;
+				if particle.pos[i] > self.dims[i] * 0.5 {
+					particle.pos[i] -= self.dims[i];
+				} else if -particle.pos[0] >= self.dims[0] * 0.5 {
+					particle.pos[i] += self.dims[i];
 				}
 			}
 		}
