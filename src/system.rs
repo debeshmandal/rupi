@@ -27,3 +27,15 @@ impl System {
 		}
   }
 }
+
+#[cfg(test)]
+mod tests {
+
+  use crate::system::System;
+
+  #[test]
+  fn initialises() {
+    let s = System::new([10.0, 10.0, 10.0]);
+    assert_eq!(s.dims[0], 10.0)
+  }
+}

@@ -8,11 +8,23 @@ pub struct Particle {
 
 impl Particle {
   pub fn new() -> Self {
-    Particle{
+    Particle {
       mass: 1.0,
       pos: [0.0, 0.0, 0.0],
       vel: [1.0, 0.0, 0.0],
       force: [0.0, 0.0, 0.0],
     }
+  }
+}
+
+#[cfg(test)]
+mod tests {
+
+  use crate::particle::Particle;
+
+  #[test]
+  fn initialises() {
+    let p = Particle::new();
+    assert_eq!(p.mass, 1.0)
   }
 }

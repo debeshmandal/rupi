@@ -49,3 +49,15 @@ impl Integrator {
 		}
 	}
 }
+
+#[cfg(test)]
+mod tests {
+
+  use crate::integrator::Integrator;
+
+  #[test]
+  fn initialises() {
+    let i = Integrator::new(0.1);
+    assert_eq!(i.timestep, 0.1)
+  }
+}
