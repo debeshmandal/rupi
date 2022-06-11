@@ -1,9 +1,9 @@
 #[derive(Debug)]
 pub struct Particle {
-  mass: f32,
-  pos: [f32; 3],
-  vel: [f32; 3],
-  force: [f32; 3],
+  pub mass: f32,
+  pub pos: [f32; 3],
+  pub vel: [f32; 3],
+  pub force: [f32; 3],
 }
 
 impl Particle {

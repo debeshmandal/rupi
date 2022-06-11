@@ -1,7 +1,8 @@
 mod particle;
 
 fn main() {
-    let _p = particle::Particle::new();
+    let mut p = particle::Particle::new();
+    p.pos[0] += 1.0;
     println!("Hello, world!");
-    println!("{:?}", _p);
+    println!("{:?}", p);
 }
