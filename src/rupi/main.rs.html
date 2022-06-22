@@ -47,26 +47,38 @@
 <span id="42">42</span>
 <span id="43">43</span>
 <span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
 </pre><pre class="rust"><code><span class="kw">mod</span> <span class="ident">particle</span>;
 <span class="kw">mod</span> <span class="ident">system</span>;
 <span class="kw">mod</span> <span class="ident">integrator</span>;
+<span class="kw">mod</span> <span class="ident">utils</span>;
 
 <span class="kw">use</span> <span class="ident">std::time::Instant</span>;
+<span class="kw">use</span> <span class="ident">clap::Parser</span>;
 
 <span class="kw">fn</span> <span class="ident">main</span>() {
   <span class="macro">println!</span>(<span class="string">&quot;Welcome to rupi!&quot;</span>);
+
+  <span class="kw">let</span> <span class="ident">args</span> <span class="op">=</span> <span class="ident">utils::cli::Cli::parse</span>();
+
   <span class="kw">let</span> <span class="ident">now</span> <span class="op">=</span> <span class="ident">Instant::now</span>();
 
   <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">s</span> <span class="op">=</span> <span class="ident">system::System::new</span>([<span class="number">10.0</span>, <span class="number">10.0</span>, <span class="number">10.0</span>]);
   <span class="kw">let</span> <span class="ident">inte</span> <span class="op">=</span> <span class="ident">integrator::Integrator::new</span>(<span class="number">0.1</span>);
 
-  <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">32000</span> {
+  <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">args</span>.<span class="ident">number</span> {
     <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">particle::Particle::new</span>();
     <span class="ident">s</span>.<span class="ident">particles</span>.<span class="ident">push</span>(<span class="ident">p</span>);
   }
+
   <span class="ident">inte</span>.<span class="ident">run</span>(<span class="kw-2">&amp;mut</span> <span class="ident">s</span>, <span class="number">100</span>);
   <span class="kw">let</span> <span class="ident">elapsed</span> <span class="op">=</span> <span class="ident">now</span>.<span class="ident">elapsed</span>();
-  <span class="macro">println!</span>(<span class="string">&quot;Simulation took {:?}ms&quot;</span>, <span class="ident">elapsed</span>.<span class="ident">as_micros</span>() <span class="kw">as</span> <span class="ident">f32</span> <span class="op">/</span> <span class="number">1000.0</span>);
+  <span class="macro">println!</span>(<span class="string">&quot;Simulation took {:?}ms for {:?} particles&quot;</span>, <span class="ident">elapsed</span>.<span class="ident">as_micros</span>() <span class="kw">as</span> <span class="ident">f32</span> <span class="op">/</span> <span class="number">1000.0</span>, <span class="ident">args</span>.<span class="ident">number</span>);
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
