@@ -1,23 +1,29 @@
 mod particle;
 mod system;
 mod integrator;
+mod utils;
 
 use std::time::Instant;
+use clap::Parser;
 
 fn main() {
   println!("Welcome to rupi!");
+
+  let args = utils::cli::Cli::parse();
+
   let now = Instant::now();
 
   let mut s = system::System::new([10.0, 10.0, 10.0]);
   let inte = integrator::Integrator::new(0.1);
 
-  for _ in 0..32000 {
+  for _ in 0..args.number {
     let p = particle::Particle::new();
     s.particles.push(p);
   }
+
   inte.run(&mut s, 100);
   let elapsed = now.elapsed();
-  println!("Simulation took {:?}ms", elapsed.as_micros() as f32 / 1000.0);
+  println!("Simulation took {:?}ms for {:?} particles", elapsed.as_micros() as f32 / 1000.0, args.number);
 }
 
 #[cfg(test)]
