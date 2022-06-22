@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["System","A container for a simulation system, containing particles."]]});
