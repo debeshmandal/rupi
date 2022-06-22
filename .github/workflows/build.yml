@@ -21,7 +21,11 @@ jobs:
     - name: Run tests
       run: cargo test --verbose
     - name: Build documentation
-      run: cargo doc --no-deps && mkdir -p docs && cp -r target/doc/rupi/* docs
+      run:
+        cargo doc --no-deps && \
+        mkdir -p docs && \
+        echo "<meta http-equiv=\"refresh\" content=\"0; url=build_wheel\">" > target/doc/index.html && \
+        cp -r target/doc/* docs
     - name: Deploy documentation
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
