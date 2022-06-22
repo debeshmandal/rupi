@@ -1,3 +1,13 @@
+///
+/// A container for a single particle instance describing its state
+///
+/// # Usage
+///
+/// ```
+/// let particle = Particle::new();
+/// ```
+///
+
 #[derive(Debug)]
 pub struct Particle {
   pub mass: f32,

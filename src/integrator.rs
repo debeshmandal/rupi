@@ -1,5 +1,15 @@
 use crate::{particle::Particle, system::System};
 
+///
+/// A set of routines for integrating a simulation system through time.
+///
+/// # Usage
+///
+/// ```
+/// let integrator = Integrator::new(0.1);
+/// ```
+///
+
 #[derive(Debug)]
 pub struct Integrator {
   timestep: f32,

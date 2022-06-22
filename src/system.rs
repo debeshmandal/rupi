@@ -1,6 +1,16 @@
 use std::vec;
 use crate::particle::Particle;
 
+///
+/// A container for a simulation system, containing particles.
+///
+/// # Usage
+///
+/// ```
+/// let s = System::new([10.0, 10.0, 10.0]);
+/// ```
+///
+
 #[derive(Debug)]
 pub struct System {
   pub dims: [f32; 3],
