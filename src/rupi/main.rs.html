@@ -53,6 +53,10 @@
 <span id="48">48</span>
 <span id="49">49</span>
 <span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
 </pre><pre class="rust"><code><span class="kw">mod</span> <span class="ident">particle</span>;
 <span class="kw">mod</span> <span class="ident">system</span>;
 <span class="kw">mod</span> <span class="ident">integrator</span>;
@@ -71,10 +75,14 @@
   <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">s</span> <span class="op">=</span> <span class="ident">system::System::new</span>([<span class="number">10.0</span>, <span class="number">10.0</span>, <span class="number">10.0</span>]);
   <span class="kw">let</span> <span class="ident">inte</span> <span class="op">=</span> <span class="ident">integrator::Integrator::new</span>(<span class="number">0.1</span>);
 
+  <span class="comment">// if particles file given, read particles</span>
+
   <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">args</span>.<span class="ident">number</span> {
     <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">particle::Particle::new</span>();
     <span class="ident">s</span>.<span class="ident">particles</span>.<span class="ident">push</span>(<span class="ident">p</span>);
   }
+
+  <span class="comment">// set output period - to be later set by input script</span>
 
   <span class="ident">inte</span>.<span class="ident">run</span>(<span class="kw-2">&amp;mut</span> <span class="ident">s</span>, <span class="number">100</span>);
   <span class="kw">let</span> <span class="ident">elapsed</span> <span class="op">=</span> <span class="ident">now</span>.<span class="ident">elapsed</span>();

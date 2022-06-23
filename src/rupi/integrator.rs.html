@@ -76,6 +76,8 @@
 <span id="71">71</span>
 <span id="72">72</span>
 <span id="73">73</span>
+<span id="74">74</span>
+<span id="75">75</span>
 </pre><pre class="rust"><code><span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">particle::Particle</span>, <span class="ident">system::System</span>};
 
 <span class="doccomment">///</span>
@@ -111,6 +113,8 @@
     <span class="self">self</span>.<span class="ident">velocity_verlet_intermediate</span>(<span class="kw-2">&amp;mut</span> <span class="ident">system</span>.<span class="ident">particles</span>);
     <span class="self">self</span>.<span class="ident">velocity_verlet_final</span>(<span class="kw-2">&amp;mut</span> <span class="ident">system</span>.<span class="ident">particles</span>);
     <span class="ident">system</span>.<span class="ident">pbc</span>();
+
+    <span class="comment">// if output condition met, do output</span>
   }
 
   <span class="kw">fn</span> <span class="ident">velocity_verlet_initial</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">particles</span>: <span class="kw-2">&amp;mut</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Particle</span><span class="op">&gt;</span>) {
