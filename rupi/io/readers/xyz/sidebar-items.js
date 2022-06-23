@@ -1,1 +1,1 @@
-initSidebarItems({"trait":[["XYZ","A trait for reading XYZ files."]]});
+initSidebarItems({"fn":[["line_to_particle",""]],"trait":[["XYZ","A trait for reading XYZ files."]]});
