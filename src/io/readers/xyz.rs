@@ -1,7 +1,7 @@
-mod core::CoreReader;
+use crate::io::readers::core::Reader;
 
 ///
-/// A set of routines for integrating a simulation system through time.
+/// A trait for reading XYZ files.
 ///
 /// # Usage
 ///
@@ -10,15 +10,12 @@ mod core::CoreReader;
 /// ```
 ///
 
-#[derive(Debug, CoreReader)]
-pub struct XYZReader {
-  fname: &str
+pub trait XYZ {
+  fn load_xyz(&self);
 }
 
-impl XYZReader {
-  pub fn new(fname: &str) -> Self {
-    XYZReader{
-      fname: fname,
-    }
+impl XYZ for Reader {
+  fn load_xyz(&self) {
+    println!("{:?}", self.fname);
   }
 }

@@ -2,6 +2,7 @@ mod particle;
 mod system;
 mod integrator;
 mod utils;
+mod io;
 
 use std::time::Instant;
 use clap::Parser;
@@ -17,6 +18,9 @@ fn main() {
   let inte = integrator::Integrator::new(0.1);
 
   // if particles file given, read particles
+  let reader = io::readers::core::Reader::new("test.xyz".to_string());
+  let xyz: &dyn io::readers::xyz::XYZ = &reader;
+  xyz.load_xyz();
 
   for _ in 0..args.number {
     let p = particle::Particle::new();

@@ -9,13 +9,13 @@
 ///
 
 #[derive(Debug)]
-pub struct CoreReader {
-  fname: &str
+pub struct Reader {
+  pub fname: String
 }
 
-impl CoreReader {
-  pub fn new(fname: &str) -> Self {
-    CoreReader{
+impl Reader {
+  pub fn new(fname: String) -> Self {
+    Reader{
       fname: fname,
     }
   }
