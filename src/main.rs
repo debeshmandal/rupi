@@ -4,13 +4,14 @@ mod integrator;
 mod utils;
 mod io;
 
-use std::time::Instant;
-use clap::Parser;
+use std::{time::Instant, env};
+
 
 fn main() {
   println!("Welcome to rupi!");
 
-  let args = utils::cli::Cli::parse();
+  let args: Vec<String> = env::args().collect();
+  let number = args[1].parse::<i32>().unwrap();
 
   let now = Instant::now();
 
@@ -22,7 +23,7 @@ fn main() {
   let xyz: &dyn io::readers::xyz::XYZ = &reader;
   xyz.load_xyz();
 
-  for _ in 0..args.number {
+  for _ in 0..number {
     let p = particle::Particle::new();
     s.particles.push(p);
   }
@@ -31,7 +32,7 @@ fn main() {
 
   inte.run(&mut s, 100);
   let elapsed = now.elapsed();
-  println!("Simulation took {:?}ms for {:?} particles", elapsed.as_micros() as f32 / 1000.0, args.number);
+  println!("Simulation took {:?}ms for {:?} particles", elapsed.as_micros() as f32 / 1000.0, number);
 }
 
 #[cfg(test)]

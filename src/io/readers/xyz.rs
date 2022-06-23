@@ -6,7 +6,9 @@ use crate::io::readers::core::Reader;
 /// # Usage
 ///
 /// ```
-/// let reader = XYZReader::new("test.xyz");
+/// let reader = Reader::new("test.xyz".to_string());
+/// let xyz &dyn io::readers::xyz::XYZ = &reader;
+/// xyz.load_xyz();
 /// ```
 ///
 
