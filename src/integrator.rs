@@ -33,6 +33,8 @@ impl Integrator {
     self.velocity_verlet_intermediate(&mut system.particles);
     self.velocity_verlet_final(&mut system.particles);
     system.pbc();
+
+    // if output condition met, do output
   }
 
   fn velocity_verlet_initial(&self, particles: &mut Vec<Particle>) {

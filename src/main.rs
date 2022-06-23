@@ -16,10 +16,14 @@ fn main() {
   let mut s = system::System::new([10.0, 10.0, 10.0]);
   let inte = integrator::Integrator::new(0.1);
 
+  // if particles file given, read particles
+
   for _ in 0..args.number {
     let p = particle::Particle::new();
     s.particles.push(p);
   }
+
+  // set output period - to be later set by input script
 
   inte.run(&mut s, 100);
   let elapsed = now.elapsed();
