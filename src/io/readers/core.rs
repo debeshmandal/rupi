@@ -1,3 +1,5 @@
+use std::fs;
+
 ///
 /// A base class for managing external files
 ///
@@ -10,13 +12,17 @@
 
 #[derive(Debug)]
 pub struct Reader {
-  pub fname: String
+  pub fname: String,
+  pub contents: String
 }
 
 impl Reader {
-  pub fn new(fname: String) -> Self {
+  pub fn new(fname: &String) -> Self {
+    let contents = fs::read_to_string(fname)
+        .expect("Something went wrong reading the file");
     Reader{
-      fname: fname,
+      fname: fname.to_string(),
+      contents: contents,
     }
   }
 }

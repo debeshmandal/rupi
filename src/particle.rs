@@ -21,7 +21,7 @@ impl Particle {
     Particle {
       mass: 1.0,
       pos: [0.0, 0.0, 0.0],
-      vel: [1.0, 0.0, 0.0],
+      vel: [0.0, 0.0, 0.0],
       force: [0.0, 0.0, 0.0],
     }
   }
