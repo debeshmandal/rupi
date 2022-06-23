@@ -11,8 +11,26 @@ fn main() {
   println!("Welcome to rupi!");
 
   let args: Vec<String> = env::args().collect();
-  let number = args[1].parse::<i32>().unwrap();
-
+  let mut number: i32 = 0;
+  match args.len() {
+    1 => { number = 10000; },
+    2 => {
+      let num = &args[1];
+      // parse the number
+      number = match num.parse() {
+        Ok(n) => {
+          n
+        },
+        Err(_) => {
+          eprintln!("error: second argument not an integer");
+          return;
+        },
+      };
+    }
+    _ => {
+      eprintln!("error: Too many arguments");
+    }
+  }
   let now = Instant::now();
 
   let mut s = system::System::new([10.0, 10.0, 10.0]);
