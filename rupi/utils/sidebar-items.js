@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["cli",""]]});
+initSidebarItems({});

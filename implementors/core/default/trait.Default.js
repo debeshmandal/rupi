@@ -1,3 +1,0 @@
-(function() {var implementors = {};
-implementors["rupi"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.61.0/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"rupi/utils/cli/struct.Cli.html\" title=\"struct rupi::utils::cli::Cli\">Cli</a>","synthetic":false,"types":["rupi::utils::cli::Cli"]}];
-if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

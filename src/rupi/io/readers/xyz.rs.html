@@ -24,6 +24,8 @@
 <span id="19">19</span>
 <span id="20">20</span>
 <span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
 </pre><pre class="rust"><code><span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::io::readers::core::Reader</span>;
 
 <span class="doccomment">///</span>
@@ -32,7 +34,9 @@
 <span class="doccomment">/// # Usage</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```</span>
-<span class="doccomment">/// let reader = XYZReader::new(&quot;test.xyz&quot;);</span>
+<span class="doccomment">/// let reader = Reader::new(&quot;test.xyz&quot;.to_string());</span>
+<span class="doccomment">/// let xyz &amp;dyn io::readers::xyz::XYZ = &amp;reader;</span>
+<span class="doccomment">/// xyz.load_xyz();</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">///</span>
 
