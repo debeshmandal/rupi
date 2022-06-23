@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Reader","A base class for managing external files"]]});
