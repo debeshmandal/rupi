@@ -38,28 +38,28 @@ impl Integrator {
   }
 
   fn velocity_verlet_initial(&self, particles: &mut Vec<Particle>) {
-		for particle in particles.iter_mut() {
+    for particle in particles.iter_mut() {
       for i in 0..3 {
         particle.vel[i] += self.timestep * 0.5 * particle.force[i] / particle.mass;
       }
-		}
-	}
+    }
+  }
 
-	fn velocity_verlet_intermediate(&self, particles: &mut Vec<Particle>) {
-		for particle in particles.iter_mut() {
+  fn velocity_verlet_intermediate(&self, particles: &mut Vec<Particle>) {
+    for particle in particles.iter_mut() {
       for i in 0..3 {
-			  particle.pos[i] += particle.vel[i] * self.timestep;
+        particle.pos[i] += particle.vel[i] * self.timestep;
       }
-		}
-	}
+    }
+  }
 
-	fn velocity_verlet_final(&self, particles: &mut Vec<Particle>) {
-		for particle in particles.iter_mut() {
-			for i in 0..3 {
+  fn velocity_verlet_final(&self, particles: &mut Vec<Particle>) {
+    for particle in particles.iter_mut() {
+      for i in 0..3 {
         particle.vel[i] += self.timestep * 0.5 * particle.force[i] / particle.mass;
       }
-		}
-	}
+    }
+  }
 }
 
 #[cfg(test)]
