@@ -11,5 +11,5 @@ Find the documentation here: [https://debeshmandal.co.uk/rupi](https://debeshman
 Run the test system
 
 ```
-cargo run
+cargo run sandbox/test.xyz
 ```
