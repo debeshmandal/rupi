@@ -6,7 +6,7 @@ use std::fs;
 /// # Usage
 ///
 /// ```
-/// let reader = CoreReader::new("test.xyz");
+/// let reader = Reader::new("test.xyz");
 /// ```
 ///
 

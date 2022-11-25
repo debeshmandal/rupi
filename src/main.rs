@@ -34,6 +34,11 @@ fn main() {
   inte.run(&mut s, steps);
   let elapsed = now.elapsed();
   println!("Simulation took {:?}ms for {:?} particles", elapsed.as_micros() as f32 / 1000.0, s.particles.len());
+
+  // Write system to file
+  // let writer = io::writers::core::Writer::new(& s, "test.out.xyz");
+  // let xyz_writer: &dyn io::writers::xyz::XYZ = &writer
+  // xyz_writer.write("test.out.xyz")
 }
 
 #[cfg(test)]
